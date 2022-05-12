@@ -77,7 +77,7 @@ class App extends Component {
     });*/
 
     const response = await fetch(
-      "https://api-inference.huggingface.co/models/sagorsarker/mbert-bengali-tydiqa-qa",
+      "https://api-inference.huggingface.co/models/sartajekram/qa-app",
       {
           headers: { Authorization: `Bearer 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` },
           method: "POST",
