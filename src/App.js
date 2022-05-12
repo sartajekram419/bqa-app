@@ -19,7 +19,7 @@ class App extends Component {
 
       question: "",
       passage: "",
-      answer: "ssssssssssssssssssssssssssfsfssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+      answer: "",
 
       shown: false,
 
@@ -42,9 +42,11 @@ class App extends Component {
       
         borderRadius: "5px 5px 5px 5px",
         border: "2px solid #EAEAF5",
-        justifyContent: "start",
+        justifyContent: "top",
         textAlignVertical: 'top',
-        textAlign: 'top'
+        textAlign: 'top',
+
+        flexWrap: 'wrap'
     },
       styleLabel: {
           padding: "0px 0px 0px 0px",
@@ -85,7 +87,7 @@ class App extends Component {
       }
   );
   const result = await response.json();
-  this.setAnswer(JSON.stringify(result["answer"]));
+  this.setAnswer(result["answer"]);
 
     this.setShown();
   };
