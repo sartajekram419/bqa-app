@@ -28,25 +28,24 @@ class App extends Component {
           textAlign: "center",
       },
       styleInput: {
-          height: "20px",
-          padding: "0px 0px 0px 10px",
+          height: "30px",
+          padding: "10px 0px 0px 10px",
           background: "#EAEAF5",
           
           borderRadius: "5px 5px 5px 5px",
           border: "2px solid #EAEAF5"
       },
       styleInput1: {
-        height: "100px",
-        padding: "0px 0px 0px 10px",
+        height: "150px",
+        padding: "10px 0px 0px 10px",
         background: "#EAEAF5",
-      
+        
         borderRadius: "5px 5px 5px 5px",
         border: "2px solid #EAEAF5",
-        justifyContent: "top",
-        textAlignVertical: 'top',
-        textAlign: 'top',
+        
+        textAlign: "top-left",
+        textAlignVertical: "center",
 
-        flexWrap: 'wrap'
     },
       styleLabel: {
           padding: "0px 0px 0px 0px",
@@ -85,11 +84,12 @@ class App extends Component {
           method: "POST",
           body: JSON.stringify({'question': this.state.question, 'context': this.state.passage}),
       }
-  );
-  const result = await response.json();
-  this.setAnswer(result["answer"]);
+    );
+    const result = await response.json();
+    this.setAnswer(result["answer"]);
 
-    this.setShown();
+    if(result["answer"] != "")
+      this.setShown();
   };
 
   /*query = async (data) => {
@@ -148,7 +148,7 @@ class App extends Component {
             Enter the Question
           </label>
           <hr style={this.state.styleHr}></hr>
-          <input style={this.state.styleInput} onChange={(e) => { this.setQuestion(e.target.value) }} type="text" />
+          <textarea style={this.state.styleInput} onChange={(e) => { this.setQuestion(e.target.value) }} type="text" />
   
           <hr style={this.state.styleHr}></hr>
           <hr style={this.state.styleHr}></hr>
@@ -158,7 +158,7 @@ class App extends Component {
             Enter the Context
           </label>
           <hr style={this.state.styleHr}></hr>
-          <input style={this.state.styleInput1} onChange={(e) => { this.setPassage(e.target.value) }} type="text" />
+          <textarea style={this.state.styleInput1} onChange={(e) => { this.setPassage(e.target.value) }} type="text" />
 
 
           <hr style={this.state.styleHr}></hr>
